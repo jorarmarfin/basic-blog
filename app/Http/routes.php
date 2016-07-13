@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Auth::loginUsingId(1);
 
 Route::get('/', function () {
     return view('welcome');

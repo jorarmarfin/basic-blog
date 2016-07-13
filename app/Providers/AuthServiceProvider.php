@@ -29,7 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         // Primero definimos el nombre de la regla
         $gate->define('update-post',function ($user, $post)
         {
-            return $user->isAdmin() || $user->isAuthor($post);
+            return $user->isAuthor($post);
         });
     }
 }
