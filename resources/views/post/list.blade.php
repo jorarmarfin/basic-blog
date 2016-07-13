@@ -22,9 +22,9 @@
 			<td>{{$post->title}}</td>
 			<td>{{$post->user->name}}</td>
 			<td>
-			@if(auth()->user()->can('update-post',$post))
+			@can('update-post',$post)
 				<a href="{{url('edit-post',[$post->id])}}">Editar</a>
-			@endif
+			@endcan
 			</td>
 		</tr>
 		@endforeach
