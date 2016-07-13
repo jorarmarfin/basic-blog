@@ -26,6 +26,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        // Primero definimos el nombre de la regla
+        $gate->define('update-post',function ($user, $post)
+        {
+            return $user->isAdmin() || $user->isAuthor($post);
+        });
     }
 }

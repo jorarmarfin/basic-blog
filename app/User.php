@@ -36,4 +36,13 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function isAdmin()
+    {
+        return $this->email == 'luis.mayta@gmail.com';
+    }
+    public function isAuthor(Post $post)
+    {
+        return $this->id == $post->user_id;
+    }
 }
