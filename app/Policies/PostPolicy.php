@@ -18,12 +18,6 @@ class PostPolicy
         //
     }
 
-    public function before($user, $post)
-    {
-        if ($user->isAdmin()) {
-            return true;
-        }
-    }
     public function update($user, $post)
     {
         return $user->isAuthor($post);
