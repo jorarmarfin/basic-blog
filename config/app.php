@@ -145,6 +145,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Componente de Stynet
+         */
+        Styde\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -193,6 +198,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Access' => Styde\Html\Facades\Access::class,
     ],
 
 ];
