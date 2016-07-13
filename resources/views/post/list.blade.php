@@ -22,8 +22,9 @@
 			<td>{{$post->title}}</td>
 			<td>{{$post->user->name}}</td>
 			<td>
-			@can('update-post',$post)
+			@can('update',$post)
 				<a href="{{url('edit-post',[$post->id])}}">Editar</a>
+
 			@endcan
 			</td>
 		</tr>

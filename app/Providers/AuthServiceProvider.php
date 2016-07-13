@@ -14,6 +14,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Post' => 'App\Policies\PostPolicy',
+        // Post::class => PostPolicy::class
     ];
 
     /**
@@ -26,10 +28,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        // Primero definimos el nombre de la regla
-        $gate->define('update-post',function ($user, $post)
-        {
-            return $user->isAuthor($post);
-        });
+        $gate->define('update-post','App\policies\PostPolicy@update');
     }
 }
