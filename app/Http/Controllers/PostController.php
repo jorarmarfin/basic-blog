@@ -26,13 +26,20 @@ class PostController extends Controller
 
 
 		$post = Post::findOrFail($id);
+		/**
+		 * Primer metodo
+		 */
 		// allow o denies
-		if (Gate::denies('update-post',$post)) {
+		// if (Gate::denies('update-post',$post)) {
 
-			Alert::danger('No tienes permisos para editar este post');
+		// 	Alert::danger('No tienes permisos para editar este post');
 
-			return redirect('posts');
-		}
+		// 	return redirect('posts');
+		// }
+		/**
+		 * Seundo metodo
+		 */
+		$this->authorize('update-post',$post);
 		return $post->title;
     }
 
